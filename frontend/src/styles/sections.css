@@ -1,0 +1,94 @@
+
+.home-page .icon-circle, .home-page .icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    margin: 0 auto 25px auto; 
+    
+    
+    display: flex;
+    align-items: center;    
+    justify-content: center; 
+    
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+
+
+.home-page .card, .home-page .feature-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 40px;
+}
+
+
+
+
+@media (max-width: 1024px) {
+
+    .home-page .grid-container, .home-page .card-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+    }
+
+
+}
+
+
+
+@media (max-width: 768px) {
+
+    .home-page .card, .home-page .feature-card {
+        padding: 30px 20px; 
+        min-height: auto;
+    }
+
+
+    .home-page .icon-circle, .home-page .icon-box {
+        width: 50px; 
+        height: 50px;
+        font-size: 1.25rem;
+        margin-bottom: 15px;
+    }
+
+
+    .home-page .card h3, .home-page .feature-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+    }
+
+
+    .home-page .card p, .home-page .feature-card p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+
+}
+
+
+
+@media (max-width: 480px) {
+
+    .home-page .grid-container, .home-page .card-grid {
+        grid-template-columns: 1fr; 
+    }
+
+
+    .home-page .card, .home-page .feature-card {
+        padding: 25px 15px;
+    }
+
+
+    
+    .home-page .card a, .home-page .card button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 15px;
+    }
+
+
+}

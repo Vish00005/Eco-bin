@@ -1,0 +1,101 @@
+.error-page .container {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-page .error-box {
+    width: auto;
+    padding: 50px;
+    border: 2px solid #34d399;
+    border-radius: 30px;
+    background-color: #88f0ca;
+    color: green;
+}
+
+.error-page h1 {
+    font-size: 50px;
+}
+
+.error-page .error-box > a {
+    display: block;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgb(56, 56, 255);
+    border: 2px solid blue;
+    color: white;
+    text-decoration: none;
+    justify-self: center;
+    margin-top: 20px;
+    transition-duration: 300ms;
+}
+
+.error-page .error-box > a:hover {
+    background-color: blue;
+    box-shadow: 0 0 10px black;
+}
+
+
+
+
+@media (max-width: 768px) {
+
+    .error-page .container {
+        height: auto; 
+        min-height: 90vh;
+        padding: 40px 20px;
+    }
+
+
+    .error-page .error-box {
+        padding: 40px 30px;
+        border-radius: 24px;
+        text-align: center; 
+    }
+
+
+    .error-page h1 {
+        font-size: 35px; 
+    }
+
+
+}
+
+
+
+@media (max-width: 480px) {
+
+    .error-page .error-box {
+        padding: 30px 20px;
+        width: 100%; 
+    }
+
+
+    .error-page h1 {
+        font-size: 28px;
+    }
+
+
+    .error-page .error-box > a {
+        width: 100%; 
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+
+}
+
+
+
+@media (max-height: 500px) {
+
+    .error-page .container {
+        height: auto;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+
+}

@@ -1,0 +1,466 @@
+
+.findbin-page {
+  background-color: #f8fafc;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  color: #1e293b;
+}
+
+
+
+.findbin-page .find-header {
+  background: linear-gradient(180deg, #6ee7b7 0%, #f8fafc 100%);
+  padding: 100px 5% 40px 5%;
+}
+
+
+.findbin-page .header-content h1 {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  color: #064e3b;
+}
+
+.findbin-page .header-content p {
+  color: #065f46;
+  opacity: 0.8;
+  font-size: 1.1rem;
+}
+
+
+.findbin-page .find-container {
+  padding: 0 5% 50px 5%;
+}
+
+
+
+.findbin-page .filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  background: white;
+  padding: 15px 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+
+.findbin-page .filter-label {
+  font-weight: 600;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.findbin-page .filter-options {
+  display: flex;
+  gap: 12px;
+}
+
+
+.findbin-page .filter-btn {
+  padding: 8px 18px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  border-radius: 50px;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.findbin-page .filter-btn:hover {
+  background: #f1f5f9;
+}
+
+.findbin-page .filter-btn.active {
+  background-color: #10b981; 
+  color: #ffffff; 
+  border-color: #10b981;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+}
+
+.findbin-page .filter-btn.active i {
+  color: #ffffff;
+}
+
+
+.findbin-page .map-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 25px;
+  align-items: start;
+}
+
+.findbin-page .map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  background: #e2e8f0;
+}
+
+.findbin-page #map {
+  height: 100% !important;
+  width: 100% !important;
+  min-height: 500px;
+}
+
+
+.findbin-page .map-marker {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.findbin-page .user-location-pulse {
+  width: 12px;
+  height: 12px;
+  background-color: #3498db;
+  border-radius: 50%;
+  box-shadow: 0 0 0 rgba(52, 152, 219, 0.4);
+  animation: pulse 2s infinite;
+  border: 2px solid white;
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 15px rgba(52, 152, 219, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+  }
+}
+
+
+.findbin-page .user-loc {
+  background: #3b82f6;
+  top: 50%;
+  left: 50%;
+}
+
+.findbin-page .bin-loc {
+  background: #10b981;
+}
+
+.findbin-page .active-bin {
+  transform: scale(1.3);
+  outline: 4px solid rgba(16, 185, 129, 0.3);
+}
+
+
+.findbin-page .map-legend {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: white;
+  padding: 12px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.findbin-page .leg-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+}
+
+.findbin-page .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.findbin-page .dot.blue {
+  background: #3b82f6;
+}
+
+.findbin-page .dot.green {
+  background: #10b981;
+}
+
+
+
+.findbin-page .bin-list h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+
+.findbin-page .bin-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 1px solid #f1f5f9;
+  transition: 0.3s;
+}
+
+
+.findbin-page .bin-card.expanded {
+  border: 2px solid #10b981;
+  box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.1);
+}
+
+
+.findbin-page .bin-info-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.findbin-page .bin-info-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.findbin-page .address {
+  margin: 4px 0 0 0;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+
+.findbin-page .bin-stats {
+  display: flex;
+  gap: 15px;
+  font-size: 0.85rem;
+  color: #475569;
+  margin-bottom: 15px;
+}
+
+.findbin-page .bin-stats i {
+  color: #10b981;
+}
+
+
+.findbin-page .fill-meter-container {
+  margin-bottom: 15px;
+}
+
+.findbin-page .meter-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.findbin-page .meter-bar {
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.findbin-page .fill {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.findbin-page .fill.green {
+  background: #10b981;
+}
+
+.findbin-page .fill.orange {
+  background: #f59e0b;
+}
+
+
+.findbin-page .accepted-icons {
+  display: flex;
+  gap: 12px;
+  font-size: 1.1rem;
+  color: #94a3b8;
+  margin-bottom: 20px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 15px;
+}
+
+
+
+.findbin-page .btn-directions {
+  width: 100%;
+  padding: 14px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.2s;
+}
+
+
+.findbin-page .btn-directions:hover {
+  background: #059669;
+  transform: translateY(-2px);
+}
+
+
+
+.findbin-page .bin-details-expand {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.2s;
+    opacity: 0;
+}
+
+
+
+.findbin-page .bin-card.expanded .bin-details-expand {
+    max-height: 500px; 
+    opacity: 1;
+    margin-top: 15px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 15px;
+}
+
+
+
+.findbin-page .bin-info-header {
+    cursor: pointer;
+}
+
+
+
+
+@media (max-width: 1024px) {
+
+  .findbin-page .map-layout {
+      grid-template-columns: 1fr; 
+      gap: 30px;
+  }
+
+
+  .findbin-page .map-wrapper {
+      height: 450px; 
+      order: 1; 
+  }
+
+
+  .findbin-page .bin-list {
+      order: 2;
+  }
+
+
+}
+
+
+
+@media (max-width: 768px) {
+
+  .findbin-page .find-header {
+      padding: 100px 5% 30px 5%;
+  }
+
+
+  .findbin-page .header-content h1 {
+      font-size: 1.8rem;
+  }
+
+
+  
+  .findbin-page .filter-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+      overflow-x: hidden;
+  }
+
+
+  .findbin-page .filter-options {
+      width: 100%;
+      overflow-x: auto; 
+      padding-bottom: 5px;
+      -webkit-overflow-scrolling: touch;
+  }
+
+
+  .findbin-page .filter-btn {
+      white-space: nowrap; 
+  }
+
+
+  
+  .findbin-page .map-wrapper {
+      height: 350px;
+  }
+
+
+}
+
+
+
+@media (max-width: 480px) {
+
+  .findbin-page .find-container {
+      padding: 0 4% 40px 4%;
+  }
+
+
+  .findbin-page .header-content h1 {
+      font-size: 1.5rem;
+  }
+
+
+  .findbin-page .header-content p {
+      font-size: 1rem;
+  }
+
+
+  .findbin-page .filter-bar {
+      padding: 15px;
+  }
+
+
+  
+  .findbin-page .bin-card {
+      padding: 15px;
+  }
+
+
+  .findbin-page .bin-info-header h4 {
+      font-size: 1rem;
+  }
+
+
+  .findbin-page .bin-stats {
+      flex-direction: column; 
+      gap: 8px;
+  }
+
+
+  .findbin-page .map-legend {
+      bottom: 10px;
+      left: 10px;
+      padding: 8px 12px;
+      font-size: 0.75rem;
+  }
+
+
+}
