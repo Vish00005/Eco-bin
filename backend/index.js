@@ -10,13 +10,29 @@ const apiRoutes = require("./routes/apiRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173";
+const allowedOrigins = (process.env.CLIENT_URL || "http://localhost:5173")
+  .split(",")
+  .map((origin) => origin.trim().replace(/\/+$/, ""))
+  .filter(Boolean);
+
+app.set("trust proxy", 1);
 
 app.use(
   cors({
-    origin: CLIENT_URL,
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      const cleanOrigin = origin.replace(/\/+$/, "");
+      if (
+        allowedOrigins.includes(cleanOrigin) ||
+        cleanOrigin.endsWith("management.vercel.app")
+      ) {
+        return callback(null, true);
+      }
+      console.warn("CORS blocked origin:", origin);
+      return callback(new Error("Not allowed by CORS"));
+    },
     credentials: true,
-  })
+  }),
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -37,6 +53,10 @@ mongoose
   .catch((err) => console.error("❌ Mongo Error:", err.message));
 
 // Health check
+app.get("/", (req, res) => {
+  res.json({ ok: true, service: "ecobin-backend" });
+});
+
 app.get("/api/health", (req, res) => {
   res.json({ ok: true, service: "ecobin-backend" });
 });

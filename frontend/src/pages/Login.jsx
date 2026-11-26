@@ -55,7 +55,14 @@ export default function Login() {
       await login(loginData.email, loginData.password);
       navigate(redirectTo, { replace: true });
     } catch (err) {
-      setError(err.response?.data?.error || "Login failed. Please check your credentials.");
+      if (!err.response) {
+        setError("Cannot reach server. Check VITE_API_URL and backend status.");
+      } else {
+        setError(
+          err.response?.data?.error ||
+            `Login failed (${err.response.status}). Check VITE_API_URL on Vercel.`
+        );
+      }
     } finally {
       setSubmitting(false);
     }
@@ -83,7 +90,14 @@ export default function Login() {
       setSuccess("Account created successfully!");
       navigate(redirectTo, { replace: true });
     } catch (err) {
-      setError(err.response?.data?.error || "Signup failed. Please try again.");
+      if (!err.response) {
+        setError("Cannot reach server. Check VITE_API_URL and backend status.");
+      } else {
+        setError(
+          err.response?.data?.error ||
+            `Signup failed (${err.response.status}). Check VITE_API_URL on Vercel.`
+        );
+      }
     } finally {
       setSubmitting(false);
     }

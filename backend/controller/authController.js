@@ -21,10 +21,13 @@ function signToken(userId) {
   return jwt.sign({ id: userId }, JWT_SECRET, { expiresIn: "3d" });
 }
 
+const isProduction = process.env.NODE_ENV === "production";
+
 function setAuthCookie(res, token) {
   res.cookie("token", token, {
     httpOnly: true,
-    sameSite: "lax",
+    sameSite: isProduction ? "none" : "lax",
+    secure: isProduction,
     maxAge: COOKIE_MAX_AGE,
   });
 }
@@ -96,7 +99,11 @@ module.exports.login = async (req, res, next) => {
 };
 
 module.exports.logout = (req, res) => {
-  res.clearCookie("token");
+  res.clearCookie("token", {
+    httpOnly: true,
+    sameSite: isProduction ? "none" : "lax",
+    secure: isProduction,
+  });
   return res.json({ message: "Logged out successfully" });
 };
 
